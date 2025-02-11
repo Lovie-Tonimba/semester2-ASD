@@ -9,7 +9,8 @@ public class menghitungIPSemesterJ1 {
         System.out.println("Program Menghitung IP Semester");
         System.out.println("=====================");
 
-        String matkul[] = {"Pancasila", "Konsep Teknologi Informasi", "Critical Thinking dan Problem Solving", "Matematika Dasar", "Bahasa Inggris", "Dasar Pemrograman", "Praktikum Dasar Pemrograman", "Keselamatan dan Kesehatan Kerja"};
+        String matkul[] = {"Pancasila", "Konsep Teknologi Informasi", "Critical Thinking dan Problem Solving", "Matematika Dasar", 
+                        "Bahasa Inggris", "Dasar Pemrograman", "Praktikum Dasar Pemrograman", "Keselamatan dan Kesehatan Kerja"};
         double nilai[] = new double[matkul.length];
         String nilaiHuruf[] = new String[matkul.length];
         double nilaiSetara[] = new double[matkul.length];
