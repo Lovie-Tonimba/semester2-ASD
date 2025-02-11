@@ -52,12 +52,12 @@ public class menghitungIPSemesterJ1 {
             totalNilaiSetara += nilaiSetara[i];
         }
 
-        System.out.println("MK\t\t\t\t\t" + "Nilai Angka\t" + "Nilai Huruf\t" + "Bobot Nilai");
+        System.out.println("MK                                   Nilai Angka   Nilai Huruf   Bobot Nilai");        
         for (int i = 0; i < matkul.length; i++) {
-            System.out.println(matkul[i] + "\t\t\t\t\t" + nilai[i] + "\t" + nilaiHuruf[i] + "\t" + nilaiSetara[i]);
+            System.out.printf("%-40s %-12.2f %-12s %.2f\n", matkul[i], nilai[i], nilaiHuruf[i], nilaiSetara[i]);
         }
-        System.out.println("=====================");
-
+        System.out.println("============================================================================");
+        
         double ipk = totalNilaiSetara / matkul.length;
         System.out.println("IP : " + ipk);
     }
