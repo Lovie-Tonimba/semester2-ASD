@@ -16,5 +16,7 @@ public class mahasiswaMain10J2 {
         mhs2.updateipk(3.30);
         mhs2.tampilkanInformasi();
 
+        mahasiswa10J2 mhsLovie = new mahasiswa10J2("Lovie Jechonia Tonimba", "244107060101", 3.90, "SIB 1G");
+        mhsLovie.tampilkanInformasi();
     }
 }
