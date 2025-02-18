@@ -15,5 +15,6 @@ public class mahasiswaMain10J2 {
         mahasiswa10J2 mhs2 = new mahasiswa10J2("Annisa Naabila", "2141720171", 3.25, "TI 2L");
         mhs2.updateipk(3.30);
         mhs2.tampilkanInformasi();
+
     }
 }
