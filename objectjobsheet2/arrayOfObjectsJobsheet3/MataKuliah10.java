@@ -11,4 +11,11 @@ public class MataKuliah10 {
         this.sks = sks;
         this.jumlahJam = jumlahJam;
     }
+
+    public MataKuliah10(String kode, String nama){
+        this.kode = kode;
+        this.nama = nama;
+        this.sks = 2;
+        this.jumlahJam = 4;
+    }
 }
