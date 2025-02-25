@@ -4,6 +4,9 @@ public class DosenDemo10 {
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
         Dosen10[] arrayOfDosen = new Dosen10[3];
+
+        DataDosen10 dataDosen = new DataDosen10();
+
         String kode, nama, inputJK;
         int usia;
         boolean jenisKelamin;
@@ -33,13 +36,19 @@ public class DosenDemo10 {
             System.out.println("------------------------------------------------");
         }
 
-        System.out.println("\nDATA DOSEN");
-        for (Dosen10 dosen : arrayOfDosen) {
-            System.out.println("Kode            : " + dosen.kode);
-            System.out.println("Nama            : " + dosen.nama);
-            System.out.println("Jenis Kelamin   : " + (dosen.jenisKelamin ? "Pria" : "Wanita"));
-            System.out.println("Usia            : " + dosen.usia);
-            System.out.println("------------------------------------------------");
-        }
+        dataDosen.dataSemuaDosen(arrayOfDosen);
+        dataDosen.jumlahDosenPerJenisKelamin(arrayOfDosen);
+        dataDosen.rerataUsiaDosenPerJenisKelamin(arrayOfDosen);
+        dataDosen.infoDosenPalingTua(arrayOfDosen);
+        dataDosen.infoDosenPalingMuda(arrayOfDosen);
+        
+        // System.out.println("\nDATA DOSEN");
+        // for (Dosen10 dosen : arrayOfDosen) {
+        //     System.out.println("Kode            : " + dosen.kode);
+        //     System.out.println("Nama            : " + dosen.nama);
+        //     System.out.println("Jenis Kelamin   : " + (dosen.jenisKelamin ? "Pria" : "Wanita"));
+        //     System.out.println("Usia            : " + dosen.usia);
+        //     System.out.println("------------------------------------------------");
+        // }
     }
 }
