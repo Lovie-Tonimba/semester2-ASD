@@ -5,10 +5,8 @@ public class Dosen10 {
     boolean statusAktif;
     int tahunBergabung;
     String bidangKeahlian;
-
     public Dosen10() {
     }
-
     public Dosen10(String id, String nm, boolean status, int tahun, String bidang) {
         this.idDosen = id;
         this.nama = nm;
@@ -16,7 +14,6 @@ public class Dosen10 {
         this.tahunBergabung = tahun;
         this.bidangKeahlian = bidang;
     }
-
     void tampilInformasi() {
         System.out.println("ID Dosen        : " + idDosen);
         System.out.println("Nama Dosen      : " + nama);
@@ -24,16 +21,13 @@ public class Dosen10 {
         System.out.println("Tahun Bergabung : " + tahunBergabung);
         System.out.println("Bidang Keahlian : " + bidangKeahlian);
     }
-
     void setStatusAktif(boolean status) {
         statusAktif = status;
         System.out.println("Status aktif telah diubah : " + (statusAktif ? "Aktif" : "Tidak Aktif"));
     }
-
     int hitungMasaKerja(int thnSkrg) {
         return thnSkrg - tahunBergabung;
     }
-
     void ubahKeahlian(String bidang) {
         bidangKeahlian = bidang;
         System.out.println("Bidang keahlian telah diubah : " + bidangKeahlian);
