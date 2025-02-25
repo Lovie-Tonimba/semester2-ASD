@@ -21,13 +21,14 @@ public class MahasiswaDemo10 {
         }
         for (int i = 0; i < 3; i++) {
             System.out.println("Data Mahasiswa ke-" + (i+1));
-            System.out.println("NIM         : " + arrayOfMahasiswa[i].nim);
-            System.out.println("Nama        : " + arrayOfMahasiswa[i].nama);
-            System.out.println("Kelas       : " + arrayOfMahasiswa[i].kelas);
-            System.out.println("IPK         : " + arrayOfMahasiswa[i].ipk);
+            arrayOfMahasiswa[i].cetakInfo();
+            // System.out.println("NIM         : " + arrayOfMahasiswa[i].nim);
+            // System.out.println("Nama        : " + arrayOfMahasiswa[i].nama);
+            // System.out.println("Kelas       : " + arrayOfMahasiswa[i].kelas);
+            // System.out.println("IPK         : " + arrayOfMahasiswa[i].ipk);
             System.out.println("----------------------------------------");
         }
-        
+ 
         // arrayOfMahasiswa[0] = new Mahasiswa10();
         // arrayOfMahasiswa[0].nim = "244107060033";
         // arrayOfMahasiswa[0].nama = "AGNES TITANIA KINANTI";
