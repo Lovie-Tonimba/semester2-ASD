@@ -6,10 +6,17 @@ public class pangkat10 {
         nilai = n;
         pangkat = p;
     }
-    int pangkatBF(int a, int n){
+    // int pangkatBF(int a, int n){
+    //     int hasil = 1;
+    //     for (int i = 0; i < n; i++) {
+    //         hasil = hasil*a;
+    //     }
+    //     return hasil;
+    // }
+    int pangkatBF(){
         int hasil = 1;
-        for (int i = 0; i < n; i++) {
-            hasil = hasil*a;
+        for (int i = 0; i < this.pangkat; i++) {
+            hasil = hasil * this.nilai;
         }
         return hasil;
     }
