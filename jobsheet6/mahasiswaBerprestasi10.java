@@ -1,13 +1,14 @@
 package jobsheet6;
 public class mahasiswaBerprestasi10 {
-    // mahasiswa10[] listMhs = new mahasiswa10[5];
-    //modif
-    mahasiswa10[] listMhs;
+    mahasiswa10[] listMhs = new mahasiswa10[5];
     int idx;
-    mahasiswaBerprestasi10(int jumlah){
-        listMhs = new mahasiswa10[jumlah];
-        idx = 0;
-    }
+    //modif
+    // mahasiswa10[] listMhs;
+    // int idx;
+    // mahasiswaBerprestasi10(int jumlah){
+    //     listMhs = new mahasiswa10[jumlah];
+    //     idx = 0;
+    // }
     void tambah(mahasiswa10 m){
         if(idx < listMhs.length){
             listMhs[idx] = m;
@@ -19,10 +20,10 @@ public class mahasiswaBerprestasi10 {
     void tampil(){
         for (mahasiswa10 m : listMhs) {
             //modif 
-            if (m != null) {
+            // if (m != null) {
+                // }
                 m.tampilInformasi();
                 System.out.println("--------------------------------------");
-            }
         }
     }
     void bubbleSort(){
@@ -54,6 +55,17 @@ public class mahasiswaBerprestasi10 {
             mahasiswa10 temp = listMhs[i];
             int j = i;
             while (j > 0 && listMhs[j-1].ipk > temp.ipk) { 
+                listMhs[j] = listMhs[j-1];
+                j--;
+            }
+            listMhs[j] = temp;
+        }
+    }
+    void insertionSortDSC(){
+        for (int i = 1; i < listMhs.length; i++) {
+            mahasiswa10 temp = listMhs[i];
+            int j = i;
+            while (j > 0 && listMhs[j-1].ipk < temp.ipk) {
                 listMhs[j] = listMhs[j-1];
                 j--;
             }
