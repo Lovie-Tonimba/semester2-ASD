@@ -2,13 +2,6 @@ package jobsheet6;
 public class mahasiswaBerprestasi10 {
     mahasiswa10[] listMhs = new mahasiswa10[5];
     int idx;
-    //modif
-    // mahasiswa10[] listMhs;
-    // int idx;
-    // mahasiswaBerprestasi10(int jumlah){
-    //     listMhs = new mahasiswa10[jumlah];
-    //     idx = 0;
-    // }
     void tambah(mahasiswa10 m){
         if(idx < listMhs.length){
             listMhs[idx] = m;
@@ -19,9 +12,6 @@ public class mahasiswaBerprestasi10 {
     }
     void tampil(){
         for (mahasiswa10 m : listMhs) {
-            //modif 
-            // if (m != null) {
-                // }
                 m.tampilInformasi();
                 System.out.println("--------------------------------------");
         }
