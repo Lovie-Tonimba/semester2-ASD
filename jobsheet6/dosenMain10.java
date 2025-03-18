@@ -5,7 +5,6 @@ public class dosenMain10 {
         Scanner sc = new Scanner(System.in);
         dataDosen10 list = new dataDosen10();
         int input;
-
         while (true) { 
             System.out.println("==================MENU DATA DOSEN=================");
             System.out.println("1. Tambah Data Dosen");
@@ -19,7 +18,7 @@ public class dosenMain10 {
              
             if(input == 1){
                 System.out.println("TAMBAH DATA DOSEN");
-                for (int i = 0; i < 2; i++) {
+                for (int i = 0; i < 10; i++) {
                     System.out.println("Masukkan data dosen ke-" + (i+1));
                     System.out.print("Kode: ");
                     String kode = sc.nextLine();

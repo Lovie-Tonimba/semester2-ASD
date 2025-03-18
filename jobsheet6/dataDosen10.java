@@ -1,6 +1,6 @@
 package jobsheet6;
 public class dataDosen10 {
-    dosen10[] dosen = new dosen10[2];
+    dosen10[] dosen = new dosen10[10];
     int idx;
     void tambah(dosen10 dsn){
         if(idx < dosen.length){
