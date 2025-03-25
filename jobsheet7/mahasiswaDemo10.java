@@ -81,7 +81,7 @@ public class mahasiswaDemo10 {
             int pss2 = (int)posisi2;
             list.tampilPosisi(cari, pss2);
             list.tampilDataSearch(cari, pss2);
-            
+
             //melakukan pencarian data sequential
             // System.out.println("------------------------------------");                
             // System.out.println("Pencarian data");
@@ -95,6 +95,5 @@ public class mahasiswaDemo10 {
             // int pss = (int)posisi;
             // list.tampilPosisi(cari, pss);
             // list.tampilDataSearch(cari, pss);
-
     }
 }
