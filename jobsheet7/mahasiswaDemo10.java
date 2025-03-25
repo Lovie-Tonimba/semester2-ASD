@@ -46,7 +46,11 @@ public class mahasiswaDemo10 {
 
             //JOBSHEET 7 SEARCHING
             Scanner sc = new Scanner(System.in);
-            int jumMhs = 5;
+            //modif no 5 percobaan 6.3
+            System.out.print("Masukkan jumlah mahasiswa: ");
+            int jumMhs = sc.nextInt();
+            sc.nextLine();
+
             for (int i = 0; i < jumMhs; i++) {
                 System.out.println("Masukkan data mahasiswa ke-" + (i+1));
                 System.out.print("NIM   : ");
@@ -61,21 +65,8 @@ public class mahasiswaDemo10 {
                 System.out.println("------------------------------------");                
                 list.tambah(new mahasiswa10(nim, nama, kelas, ipk));
             }
+            System.out.println("============LIST DATA INPUTAN MAHASISWA============");
             list.tampil();
-            //melakukan pencarian data sequential
-            // System.out.println("------------------------------------");                
-            // System.out.println("Pencarian data");
-            // System.out.println("------------------------------------");                
-            // System.out.println("masukkan ipk mahasiswa yang dicari: ");
-            // System.out.print("IPK: ");
-            // double cari = sc.nextDouble();
-
-            // System.out.println("menggunakan sequential searching");
-            // double posisi = list.sequentialSearching(cari);
-            // int pss = (int)posisi;
-            // list.tampilPosisi(cari, pss);
-            // list.tampilDataSearch(cari, pss);
-            
             //melakukan pencarian data Binary
             System.out.println("------------------------------------");                
             System.out.println("Pencarian data");
@@ -90,5 +81,20 @@ public class mahasiswaDemo10 {
             int pss2 = (int)posisi2;
             list.tampilPosisi(cari, pss2);
             list.tampilDataSearch(cari, pss2);
+            
+            //melakukan pencarian data sequential
+            // System.out.println("------------------------------------");                
+            // System.out.println("Pencarian data");
+            // System.out.println("------------------------------------");                
+            // System.out.println("masukkan ipk mahasiswa yang dicari: ");
+            // System.out.print("IPK: ");
+            // double cari = sc.nextDouble();
+
+            // System.out.println("menggunakan sequential searching");
+            // double posisi = list.sequentialSearching(cari);
+            // int pss = (int)posisi;
+            // list.tampilPosisi(cari, pss);
+            // list.tampilDataSearch(cari, pss);
+
     }
 }

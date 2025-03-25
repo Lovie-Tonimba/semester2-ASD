@@ -13,8 +13,11 @@ public class mahasiswaBerprestasi10 {
     }
     void tampil(){
         for (mahasiswa10 m : listMhs) {
+            //modif no5 percobaan 6.3 agar tidak ada error NullPointerException
+            if(m != null){
                 m.tampilInformasi();
                 System.out.println("--------------------------------------");
+            }
         }
     }
     void bubbleSort(){
