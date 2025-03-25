@@ -37,25 +37,43 @@ public class mahasiswaDemo10 {
     
             
             //modif
+
+            // System.out.println("Data mahasiswa sebelum sorting: ");
+            // list.tampil();
+            // System.out.println("Data mahasiswa setelah sorting berdasarkan IPK (DESC) : ");
+            // list.bubbleSort();
+            // list.tampil();
+
+            //JOBSHEET 7 SEARCHING
             Scanner sc = new Scanner(System.in);
-            for (int i = 0; i < 5; i++) {
+            int jumMhs = 5;
+            for (int i = 0; i < jumMhs; i++) {
                 System.out.println("Masukkan data mahasiswa ke-" + (i+1));
-                System.out.print("NIM: ");
+                System.out.print("NIM   : ");
                 String nim = sc.nextLine();
-                System.out.print("Nama: ");
+                System.out.print("Nama  : ");
                 String nama = sc.nextLine();
-                System.out.print("Kelas: ");
+                System.out.print("Kelas : ");
                 String kelas = sc.nextLine();
-                System.out.print("IPK: ");
-                double ipk = sc.nextDouble();
-                sc.nextLine();
-                
+                System.out.print("IPK   : ");
+                String ip = sc.nextLine();
+                double ipk = Double.parseDouble(ip);
+                System.out.println("------------------------------------");                
                 list.tambah(new mahasiswa10(nim, nama, kelas, ipk));
             }
-            System.out.println("Data mahasiswa sebelum sorting: ");
             list.tampil();
-            System.out.println("Data mahasiswa setelah sorting berdasarkan IPK (DESC) : ");
-            list.bubbleSort();
-            list.tampil();
+            //melakukan pencarian data sequential
+            System.out.println("------------------------------------");                
+            System.out.println("Pencarian data");
+            System.out.println("------------------------------------");                
+            System.out.println("masukkan ipk mahasiswa yang dicari: ");
+            System.out.print("IPK: ");
+            double cari = sc.nextDouble();
+
+            System.out.println("menggunakan sequential searching");
+            double posisi = list.sequentialSearching(cari);
+            int pss = (int)posisi;
+            list.tampilPosisi(cari, pss);
+            list.tampilDataSearch(cari, pss);
     }
 }
