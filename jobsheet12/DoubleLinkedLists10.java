@@ -124,10 +124,15 @@ public class DoubleLinkedLists10 {
         System.out.println("Node berhasil disisipkan setelah NIM " + keyNim);
     }
     public void print(){
-        Node10 current = head;
-        while (current != null) { 
-            current.data.tampil();
-            current = current.next;
+        //modif nomor 5
+        if(isEmpty()){
+            System.out.println("Linked List masih kosong, tidak ada data untuk ditampilkan.");
+        }else{
+            Node10 current = head;
+            while (current != null) { 
+                current.data.tampil();
+                current = current.next;
+            }
         }
     }
 }
