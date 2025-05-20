@@ -27,6 +27,8 @@ public class DLLMain {
             System.out.println("5. Tampilkan data");
             System.out.println("6. Cari Mahasiswa berdasarkan NIM");
             System.out.println("7. Tambah data baru setelah NIM tertentu");
+            System.out.println("8. Tambah data baru pada indeks tertentu");
+            System.out.println("9. Hapus data setelah NIM tertentu");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             pilihan = sc.nextInt();
@@ -69,6 +71,20 @@ public class DLLMain {
                         System.out.println("Masukkan data Mahasiswa yang akan disisipkan:");
                         mhs = inputMahasiswa(sc);
                         list.insertAfter(keyNim, mhs);
+                        break;
+                    case 8:
+                        System.out.print("Masukkan indeks tempat data akan disisipkan: ");
+                        int indexAdd = sc.nextInt();
+                        sc.nextLine();
+
+                        mhs = inputMahasiswa(sc);
+                        list.add(mhs, indexAdd);
+                        System.out.println("Mahasiswa berhasil ditambahkan di indeks " + indexAdd);
+                        break;
+                    case 9:
+                        System.out.print("Masukkan NIM Mahasiswa yang ingin dihapus datanya setelah: ");
+                        String key = sc.nextLine();
+                        list.removeAfter(key);
                         break;
                     case 0:
                         System.out.println("Keluar dari program.");

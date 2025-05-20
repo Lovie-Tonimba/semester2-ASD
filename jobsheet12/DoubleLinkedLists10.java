@@ -36,30 +36,49 @@ public class DoubleLinkedLists10 {
         size++;
     }
     public void add(Mahasiswa10 data, int index)throws Exception{
-        if(isEmpty()){
-            addFirst(data);
-        } else if(index < 0 || index > size){
+        if (index < 0 || index > size) {
             throw new Exception("Nilai indeks di luar batas");
-        }else{
-            Node10 current = head;
-            int i = 0;
-            while (i < index) { 
-                current = current.next;
-                i++;
-            }
-            if(current.prev == null){
-                Node10 newNode = new Node10(null, null, current);
-                current.prev = newNode;
-                head = newNode;
-            }else{
-                Node10 newNode = new Node10(current.prev, null, current);
-                newNode.prev = current.prev;
-                newNode.next = current;
-                current.prev.next = newNode;
-                current.prev = newNode;
-            }
         }
-        size++;
+        else if (index == 0) {
+            addFirst(data);
+        }
+        else if (index == size) {
+            addLast(data);
+        }
+        else {
+            Node10 current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            Node10 newNode = new Node10(current.prev, data, current);
+            current.prev.next = newNode;
+            current.prev = newNode;
+            size++; 
+        }
+        // if(isEmpty()){
+        //     addFirst(data);
+        // } else if(index < 0 || index > size){
+        //     throw new Exception("Nilai indeks di luar batas");
+        // }else{
+        //     Node10 current = head;
+        //     int i = 0;
+        //     while (i < index) { 
+        //         current = current.next;
+        //         i++;
+        //     }
+        //     if(current.prev == null){
+        //         Node10 newNode = new Node10(null, null, current);
+        //         current.prev = newNode;
+        //         head = newNode;
+        //     }else{
+        //         Node10 newNode = new Node10(current.prev, null, current);
+        //         newNode.prev = current.prev;
+        //         newNode.next = current;
+        //         current.prev.next = newNode;
+        //         current.prev = newNode;
+        //     }
+        // }
+        // size++;
     }
     public void removeFirst() throws Exception{
         if(isEmpty()){
@@ -97,6 +116,41 @@ public class DoubleLinkedLists10 {
         System.out.println("Data sudah berhasil dihapus. Data yang terhapus adalah:");
         deletedData.tampil();
     }
+
+    public void removeAfter(String keyNim) throws Exception {
+        if (isEmpty()) {
+            throw new Exception("Linked List masih kosong, tidak dapat menghapus setelah node tertentu!");
+        }
+        Node10 current = head;
+        while (current != null && !current.data.nim.equals(keyNim)) {
+            current = current.next;
+        }
+        if (current == null) {
+            System.out.println("Node dengan NIM " + keyNim + " tidak ditemukan.");
+            return;
+        }
+        if (current.next == null) {
+            System.out.println("Tidak ada node setelah NIM " + keyNim + " untuk dihapus.");
+            return;
+        }
+
+        Node10 nodeToDelete = current.next; 
+        Mahasiswa10 deletedData = nodeToDelete.data;
+
+        current.next = nodeToDelete.next;
+        if (nodeToDelete.next != null) {
+            nodeToDelete.next.prev = current;
+        } else {
+            tail = current;
+        }
+        nodeToDelete.prev = null; 
+        nodeToDelete.next = null; 
+
+        size--;
+        System.out.println("Data setelah NIM " + keyNim + " berhasil dihapus. Data yang terhapus adalah:");
+        deletedData.tampil();
+    }
+
     public Node10 search(String nim){
         Node10 current = head;
         while (current != null) {
@@ -117,7 +171,7 @@ public class DoubleLinkedLists10 {
             System.out.println("Node dengan NIM " + keyNim + " tidak ditemukan.");
             return;
         }
-        Node10 newNode = new Node10(current, data, current);
+        Node10 newNode = new Node10(current, data, current.next);
 
         //Jika current adalah tail, cukup tambahkan di akhir
         if(current == tail){
@@ -131,6 +185,7 @@ public class DoubleLinkedLists10 {
             current.next.prev = newNode;
             current.next = newNode;
         }
+        size++;
         System.out.println("Node berhasil disisipkan setelah NIM " + keyNim);
     }
     public void print(){
@@ -145,4 +200,5 @@ public class DoubleLinkedLists10 {
             }
         }
     }
+
 }
