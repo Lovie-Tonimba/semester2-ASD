@@ -64,28 +64,38 @@ public class DoubleLinkedLists10 {
     public void removeFirst() throws Exception{
         if(isEmpty()){
             throw new Exception("Linked List masih kosong, tidak dapat dihapus!");
-        }else if(size == 1){
-            removeLast();
-        }else{
-            head = head.next;
-            head.prev = null;
-            size--;
         }
+        Mahasiswa10 deletedData = head.data;
+        if(size == 1){
+            head = null;
+            tail = null;
+        }else{
+            head = head.next; 
+            head.prev = null;
+        }
+        size--;
+         System.out.println("Data sudah berhasil dihapus. Data yang terhapus adalah:");
+        deletedData.tampil();
     }
     public void removeLast() throws Exception{
         if(isEmpty()){
             throw new Exception("Linked List masih kosong, tidak dapat dihapus!");
-        }else if(head.next == null){
+        }
+        Mahasiswa10 deletedData = tail.data;
+        if (size == 1) { 
             head = null;
-            size--;
-            return;
+            tail = null; 
+        } else {
+            tail = tail.prev; 
+            if (tail != null) { 
+                tail.next = null; 
+            } else {
+                head = null; 
+            }
         }
-        Node10 current = head;
-        while (current.next.next != null) { 
-            current = current.next;
-        }
-        current.next = null;
         size--;
+        System.out.println("Data sudah berhasil dihapus. Data yang terhapus adalah:");
+        deletedData.tampil();
     }
     public Node10 search(String nim){
         Node10 current = head;
