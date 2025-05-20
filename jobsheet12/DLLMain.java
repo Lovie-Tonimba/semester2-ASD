@@ -29,6 +29,11 @@ public class DLLMain {
             System.out.println("7. Tambah data baru setelah NIM tertentu");
             System.out.println("8. Tambah data baru pada indeks tertentu");
             System.out.println("9. Hapus data setelah NIM tertentu");
+            System.out.println("10. Hapus data pada indeks tertentu");
+            System.out.println("11. Tampilkan data node Head"); 
+            System.out.println("12. Tampilkan data node Tail"); 
+            System.out.println("13. Tampilkan data node pada indeks tertentu"); 
+            System.out.println("14. Tampilkan jumlah data");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             pilihan = sc.nextInt();
@@ -86,6 +91,32 @@ public class DLLMain {
                         String key = sc.nextLine();
                         list.removeAfter(key);
                         break;
+                    case 10:
+                        System.out.print("Masukkan indeks data yang akan dihapus: ");
+                        int indexRemove = sc.nextInt();
+                        sc.nextLine(); 
+
+                        list.remove(indexRemove);
+                        break;
+                    case 11: 
+                        System.out.println("Data pada Node Head:");
+                        list.getFirst().tampil();
+                        break;
+                    case 12: 
+                        System.out.println("Data pada Node Tail:");
+                        list.getLast().tampil();
+                        break;
+                    case 13: 
+                        System.out.print("Masukkan indeks node yang ingin ditampilkan: ");
+                        int indexGet = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Data pada indeks " + indexGet + " adalah : ");
+                        list.get(indexGet).tampil();
+                        break;
+                    case 14:
+                        System.out.println("Jumlah data dalam Double Linked List adalah: " + list.getSize());
+                        list.print();
+                        break;
                     case 0:
                         System.out.println("Keluar dari program.");
                         break;
@@ -93,7 +124,7 @@ public class DLLMain {
                         System.out.println("Pilihan tidak valid!");
                 }
             } catch (Exception e) {
-                // System.out.println("Terjadi kesalahan: " + e.getMessage());
+                System.out.println("Terjadi kesalahan: " + e.getMessage());
             }
         } while (pilihan != 0);
         sc.close();

@@ -55,30 +55,6 @@ public class DoubleLinkedLists10 {
             current.prev = newNode;
             size++; 
         }
-        // if(isEmpty()){
-        //     addFirst(data);
-        // } else if(index < 0 || index > size){
-        //     throw new Exception("Nilai indeks di luar batas");
-        // }else{
-        //     Node10 current = head;
-        //     int i = 0;
-        //     while (i < index) { 
-        //         current = current.next;
-        //         i++;
-        //     }
-        //     if(current.prev == null){
-        //         Node10 newNode = new Node10(null, null, current);
-        //         current.prev = newNode;
-        //         head = newNode;
-        //     }else{
-        //         Node10 newNode = new Node10(current.prev, null, current);
-        //         newNode.prev = current.prev;
-        //         newNode.next = current;
-        //         current.prev.next = newNode;
-        //         current.prev = newNode;
-        //     }
-        // }
-        // size++;
     }
     public void removeFirst() throws Exception{
         if(isEmpty()){
@@ -151,10 +127,36 @@ public class DoubleLinkedLists10 {
         deletedData.tampil();
     }
 
+    public void remove(int index) throws Exception {
+        if (isEmpty() || index >= size || index < 0) {
+            throw new Exception("Nilai indeks di luar batas atau Linked List kosong!");
+        }
+
+        if (index == 0) {
+            removeFirst();
+        } else if (index == size - 1) {
+            removeLast();
+        } else {
+            Node10 current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+
+            Mahasiswa10 deletedData = current.data; 
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+            current.prev = null; 
+            current.next = null; 
+            size--;
+            System.out.println("Data pada indeks " + index + " berhasil dihapus. Data yang terhapus adalah:");
+            deletedData.tampil();
+        }
+    }
+
     public Node10 search(String nim){
         Node10 current = head;
         while (current != null) {
-            if (current.data.nim.equals(nim)) { // Gunakan .equals() untuk membandingkan String
+            if (current.data.nim.equals(nim)) { 
                 return current;
             }
             current = current.next;
@@ -200,5 +202,31 @@ public class DoubleLinkedLists10 {
             }
         }
     }
+    public Mahasiswa10 getFirst() throws Exception {
+        if (isEmpty()) {
+            throw new Exception("Linked List kosong!");
+        }
+        return head.data;
+    }
 
+    public Mahasiswa10 getLast() throws Exception {
+        if (isEmpty()) {
+            throw new Exception("Linked List kosong!");
+        }
+        return tail.data;
+    }
+
+    public Mahasiswa10 get(int index) throws Exception {
+        if (isEmpty() || index >= size || index < 0) {
+            throw new Exception("Nilai indeks di luar batas atau Linked List kosong!");
+        }
+        Node10 current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
+    }
+    public int getSize() {
+        return size;
+    }
 }
