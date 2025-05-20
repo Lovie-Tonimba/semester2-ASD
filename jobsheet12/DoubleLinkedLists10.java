@@ -124,7 +124,7 @@ public class DoubleLinkedLists10 {
         System.out.println("Node berhasil disisipkan setelah NIM " + keyNim);
     }
     public void print(){
-        //modif nomor 5
+        //modif nomor 6
         if(isEmpty()){
             System.out.println("Linked List masih kosong, tidak ada data untuk ditampilkan.");
         }else{
