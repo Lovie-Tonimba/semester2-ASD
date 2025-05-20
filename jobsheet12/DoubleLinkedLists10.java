@@ -1,5 +1,4 @@
 package jobsheet12;
-// import java.lang.classfile.instruction.ThrowInstruction;
 public class DoubleLinkedLists10 {
     Node10 head;
     Node10 tail;
