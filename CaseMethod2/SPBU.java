@@ -15,7 +15,7 @@ public class SPBU {
             pilih = sc.nextInt();
             sc.nextLine();
 
-            switch (pilih) {
+            switch (pilih){ 
                 case 1:
 
                     break;
