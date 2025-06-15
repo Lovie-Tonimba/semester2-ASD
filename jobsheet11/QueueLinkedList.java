@@ -54,6 +54,23 @@ public class QueueLinkedList {
         System.out.println("Panggilan mahasiswa atas nama " + mahasiswaDipanggil.nama + " dengan NIM " + mahasiswaDipanggil.nim);
         return mahasiswaDipanggil;
     }
+
+    //     public Kendaraan dequeue(){
+    //     if(isEmpty()){
+    //         System.out.println("Antrian masih kosong, belum ada kendaraan yang mengantri");
+    //         return null;
+    //     }
+    //     Kendaraan kendaraanYangDilayani = head.data;
+    //     head = head.next;
+    //     size--;
+    //     if(isEmpty()){
+    //         tail = null;
+    //     }
+    //     System.out.println("Petugas melayani " + kendaraanYangDiLayani.platNomor);
+    //     return kendaraanYangDilayani;
+    // }
+
+
     public Mahasiswa peekFront() {
         if (isEmpty()) {
             System.out.println("Antrian masih kosong, belum ada mahasiswa yang mendaftar");

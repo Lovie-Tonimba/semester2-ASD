@@ -1,16 +1,126 @@
 package CaseMethod2;
+import java.util.Scanner;
 
 public class transaksiPengisian {
-    kendaraan Kendaraan = new kendaraan();
-    BBM bbm = new BBM();
-    double liter;
+    // kendaraan kendaraan;
+    // BBM bbm;
+    // double liter;
     double totalBayar;
+    BBM head;
+    BBM tail;
+    int size;
+    String [] transaksi = new String [100];
+    int jumlahTransaksi = 0;
 
     public transaksiPengisian() {
     }
 
-    public transaksiPengisian(double liter, double totalBayar) {
-        this.liter = liter;
-        this.totalBayar = totalBayar;
+    // public transaksiPengisian(kendaraan kendaraan, BBM bbm, double liter) {
+    //     this.kendaraan = kendaraan;
+    //     this.bbm = bbm;
+    //     this.liter = liter;
+    // }
+    public boolean isEmpty(){
+        return (head == null);
     }
+    public void addFirst(kendaraan kendaraan){
+        if(isEmpty()){
+            head = new BBM(null, kendaraan, null);
+            tail = head;
+        }else{
+            BBM newNode = new BBM(null, kendaraan, head);
+            head.prev = newNode;
+        }
+    }
+    public void addLast(kendaraan kendaraan){
+        if(isEmpty()){
+            addFirst(kendaraan);
+        }else{
+            BBM newNode = new BBM(tail, kendaraan, null);
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+        size++;
+        System.out.println(">> Kendaraan masuk ke dalam antrian.");
+    }
+
+    public void print(){
+        if (!isEmpty()) {
+            BBM tmp = head;
+            System.out.println("Antrian Kendaraaan:");
+            while (tmp != null) {
+                tmp.data.tampilkanInformasi();
+                tmp = tmp.next;
+                System.out.println("--------------------------------------");
+            }
+            System.out.println("");
+        } else {
+            System.out.println("Antrian Kosong");
+        }
+    }
+
+    public void getSize(){
+        System.out.println(">> Jumlah Kendaraan dalam antrian: " + size);
+    }
+
+    public kendaraan dequeue(){
+        Scanner sc = new Scanner(System.in);
+        if(isEmpty()){
+            System.out.println("Antrian masih kosong, belum ada kendaraan yang mengantri");
+            return null;
+        }
+        BBM transaksi = head;
+        kendaraan kendaraanYangDilayani = transaksi.data;
+
+        System.out.println("Petugas melayani " + kendaraanYangDilayani.platNomor);
+        System.out.print("Masukkan Jenis BBM        : ");
+        transaksi.namaBBM = sc.nextLine();
+        System.out.print("Masukkan Harga per Liter  : ");
+        transaksi.hargaPerLiter = sc.nextDouble();
+        System.out.print("Masukkan Jumlah liter     : ");
+        transaksi.jumlahltr = sc.nextInt();
+        sc.nextLine();
+
+        transaksi.totalBayar = transaksi.hargaPerLiter * transaksi.jumlahltr;
+        System.out.println(">> Transaksi berhasil dicatat.");
+
+        head = head.next;
+            if (head != null) {
+                head.prev = null;
+            } else {
+                tail = null;
+            }
+
+        size--;
+
+        String keterangan = kendaraanYangDilayani.platNomor + ": Rp " + transaksi.totalBayar;
+        if (jumlahTransaksi < 100) {
+            this.transaksi[jumlahTransaksi] = keterangan;
+            jumlahTransaksi++;
+        } 
+
+        return kendaraanYangDilayani;
+    }
+    public void tampilTransaksi(){
+        if (jumlahTransaksi == 0){
+            System.out.println("Belum ada transaksi");
+        } else {
+            System.out.println("-- Riwayat Transaksi -- ");
+            System.out.println("Daftar transaksi:");
+            for (int i = 0; i < jumlahTransaksi; i++) {
+                System.out.println(transaksi[i]);
+            }
+        }
+        // System.out.println("-- Riwayat Transaksi --");
+        // if(jumlahTransaksi == 0){
+        //     System.out.println("Belum ada transaksi");
+        // }else{
+        //     System.out.println("Daftar Transaksi: ");
+        //     for(int i = 0; i < jumlahTransaksi; i++){
+        //         System.out.println(transaksi[i]);
+        //     }
+        // }
+    }
+
 }
